@@ -1,8 +1,4 @@
-// Script de Reacciones Y2K URSS
-
-// Las reacciones se guardan solo localmente (LocalStorage) 
-// por ser un sitio 100% estático por ahora.
-// Para compartirlas, necesitarías un backend (como Supabase/Giscus)
+// script.js - Lógica de Reacciones Y2K URSS (Versión Arreglada)
 
 const reactions = {
     like: document.getElementById('like-count'),
@@ -10,30 +6,37 @@ const reactions = {
     vote: document.getElementById('vote-count')
 };
 
-// Cargar conteos guardados al iniciar
+// Cargar conteos guardados al iniciar (LocalStorage)
 document.addEventListener('DOMContentLoaded', () => {
     for (const key in reactions) {
-        let count = localStorage.getItem(`${key}_count`);
-        if (!count) { count = 0; }
-        reactions[key].innerText = count;
+        if (reactions[key]) { // Verificar que el elemento exista
+            let count = localStorage.getItem(`${key}_count`);
+            if (!count) { count = 0; }
+            reactions[key].innerText = count;
+        }
     }
 });
 
 function react(type) {
-    // 1. Obtener conteo actual
-    let currentCount = parseInt(reactions[type].innerText);
-    // 2. Incrementar
-    currentCount++;
-    // 3. Guardar en LocalStorage (Solo tu navegador)
-    localStorage.setItem(`${type}_count`, currentCount);
-    // 4. Actualizar la interfaz
-    reactions[type].innerText = currentCount;
+    // 1. Obtener el elemento del contador y el botón que fue clickeado
+    const countSpan = reactions[type];
+    if (!countSpan) return; // Seguridad
 
-    // Efecto visual Y2K temporal al reaccionar
-    event.target.style.transform = "scale(1.1)";
-    event.target.style.background = "#FF00FF";
+    // El botón es el padre del contador que fue clickeado (event.target puede ser el span o el emoji)
+    // Usamos event.currentTarget para asegurar que agarramos el botón entero.
+    const button = event.currentTarget; 
+
+    // 2. Incrementar lógica (Local)
+    let currentCount = parseInt(countSpan.innerText);
+    currentCount++;
+    localStorage.setItem(`${type}_count`, currentCount);
+    countSpan.innerText = currentCount;
+
+    // 3. EFECTO VISUAL LIMPIO: Añadir la clase de "activado"
+    button.classList.add('reaction-active');
+
+    // 4. Quitar la clase después de 200ms (la duración de la animación CSS)
     setTimeout(() => {
-        event.target.style.transform = "scale(1.0)";
-        event.target.style.background = "black";
-    }, 150);
+        button.classList.remove('reaction-active');
+    }, 200);
 }

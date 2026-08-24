@@ -12,12 +12,54 @@
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+/* style.css - Actualización de Fondo con Personalidad Y2K-URSS */
+
 body {
     background-color: var(--bg-dark);
     color: var(--text-white);
-    font-family: 'Courier New', Courier, monospace; /* Fuente retro/consola */
-    background-image: linear-gradient(135deg, rgba(139, 0, 0, 0.2) 0%, rgba(26, 26, 26, 1) 50%);
+    font-family: 'Courier New', Courier, monospace;
     overflow-x: hidden;
+    position: relative; /* Necesario para las superposiciones */
+
+    /* --- CAPA 1: Textura de Concreto Brutalista (Imagen de fondo) --- */
+    /* Usamos una textura sutil de ruido/concreto. Si no tienes la imagen, 
+       he añadido una alternativa generada por CSS abajo. */
+    background-image: 
+        /* Alternativa CSS: Ruido digital sutil */
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3P%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
+        /* Degradado URSS-Y2K sutil de fondo */
+        linear-gradient(135deg, rgba(139, 0, 0, 0.15) 0%, rgba(26, 26, 26, 1) 60%, rgba(187, 0, 255, 0.1) 100%);
+    
+    background-size: 200px 200px, cover; /* El ruido se repite, el degradado cubre */
+    background-blend-mode: overlay; /* Mezcla la textura con el degradado */
+}
+
+/* --- CAPA 2: Líneas de Escaneo CRT (Efecto Y2K TV) --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    /* Líneas horizontales finas y oscuras */
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    );
+    background-size: 100% 4px; /* Altura de las líneas */
+    z-index: 999; /* Por encima de todo */
+    pointer-events: none; /* No interfiere con los clics */
+    opacity: 0.6; /* Sutil */
+}
+
+/* --- CAPA 3: Brillo Neón Periférico (Vibra Y2K) --- */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(187, 0, 255, 0.15) 100%);
+    z-index: 998;
+    pointer-events: none;
 }
 
 .main-frame {
@@ -127,15 +169,13 @@ body {
     display: flex; gap: 10px;
 }
 
-.reaction-btn {
-    background: black;
-    border: inset 2px gray;
-    color: var(--text-white);
-    padding: 5px 15px;
-    font-size: 0.85em;
-    cursor: pointer;
-    border-radius: 3px;
-    transition: background 0.1s;
+/* Estilo para la animación de reacción activa (Y2K Flash) */
+.reaction-btn.reaction-active {
+    background: var(--fucsia-y2k) !important; /* Flash Neón */
+    border-color: var(--cyan-y2k) !important;
+    color: black !important;
+    transform: scale(1.15);
+    box-shadow: 0 0 20px var(--fucsia-y2k);
 }
 
 .reaction-btn:hover { background: #333; }
