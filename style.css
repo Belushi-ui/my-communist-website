@@ -1,185 +1,211 @@
-/* Paleta de Colores Y2K URSS */
+/* PALETA INDUSTRIAL SOVIÉTICA Y2K */
 :root {
-    --fucsia-y2k: #FF00FF; /* Neón central Y2K */
-    --purple-y2k: #BB00FF; /* Secundario Y2K */
-    --cyan-y2k: #00FFFF; /* Contraste Y2K */
-    --ussr-red: #8B0000; /* Rojo crudo URSS (menos saturado) */
-    --text-white: #EAEAEA;
-    --bg-dark: #1A1A1A; /* Fondo casi negro */
-    --glitch-shadow: 2px 2px 0px rgba(255, 0, 255, 0.7);
-    --beveled-border: ridge 4px var(--purple-y2k);
+    --wine-red: #58111A;        /* Vino profundo */
+    --wine-bright: #8B1E2D;     /* Rojo vino industrial */
+    --rust-orange: #9E472A;     /* Óxido */
+    --concrete-dark: #1C1C1E;   /* Hormigón oscuro */
+    --concrete-light: #2A2B2E;  /* Hormigón agrietado */
+    --concrete-moss: #222920;   /* Musgo/Naturaleza apocalíptica */
+    --text-sand: #D4C5B9;       /* Texto envejecido */
+    --accent-red: #B22222;      /* Rojo estrella */
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* style.css - Actualización de Fondo con Personalidad Y2K-URSS */
-
+/* === PARED DE CONCRETO AGRIETADO Y SOBRECRECIMIENTO === */
 body {
-    background-color: var(--bg-dark);
-    color: var(--text-white);
+    background-color: var(--concrete-dark);
+    color: var(--text-sand);
     font-family: 'Courier New', Courier, monospace;
     overflow-x: hidden;
-    position: relative; /* Necesario para las superposiciones */
+    min-height: 100vh;
 
-    /* --- CAPA 1: Textura de Concreto Brutalista (Imagen de fondo) --- */
-    /* Usamos una textura sutil de ruido/concreto. Si no tienes la imagen, 
-       he añadido una alternativa generada por CSS abajo. */
+    /* Textura de Pared Agrietada + Textura de Hormigón */
     background-image: 
-        /* Alternativa CSS: Ruido digital sutil */
-        url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3P%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"),
-        /* Degradado URSS-Y2K sutil de fondo */
-        linear-gradient(135deg, rgba(139, 0, 0, 0.15) 0%, rgba(26, 26, 26, 1) 60%, rgba(187, 0, 255, 0.1) 100%);
+        /* Grietas horizontales/verticales orgánicas */
+        radial-gradient(ellipse at 20% 50%, rgba(139, 30, 45, 0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 80%, rgba(34, 41, 32, 0.25) 0%, transparent 50%),
+        /* Textura de rugosidad/grano de piedra */
+        repeating-linear-gradient(45deg, rgba(0,0,0,0.15) 0px, rgba(0,0,0,0.15) 2px, transparent 2px, transparent 4px),
+        /* Gradiente tono Vino/Hormigón */
+        linear-gradient(180deg, #121214 0%, var(--wine-red) 50%, #0E0E10 100%);
     
-    background-size: 200px 200px, cover; /* El ruido se repite, el degradado cubre */
-    background-blend-mode: overlay; /* Mezcla la textura con el degradado */
+    background-blend-mode: multiply, overlay, normal;
 }
 
-/* --- CAPA 2: Líneas de Escaneo CRT (Efecto Y2K TV) --- */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    /* Líneas horizontales finas y oscuras */
-    background: linear-gradient(
-        rgba(18, 16, 16, 0) 50%, 
-        rgba(0, 0, 0, 0.25) 50%
-    );
-    background-size: 100% 4px; /* Altura de las líneas */
-    z-index: 999; /* Por encima de todo */
-    pointer-events: none; /* No interfiere con los clics */
-    opacity: 0.6; /* Sutil */
-}
-
-/* --- CAPA 3: Brillo Neón Periférico (Vibra Y2K) --- */
-body::after {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
-    background: radial-gradient(circle at center, rgba(0,0,0,0) 60%, rgba(187, 0, 255, 0.15) 100%);
-    z-index: 998;
-    pointer-events: none;
-}
-
+/* MARCO MONUMENTAL DE HORMIGÓN */
 .main-frame {
     max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-    border: var(--beveled-border);
-    box-shadow: 0px 0px 20px rgba(0, 255, 255, 0.3);
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(28, 28, 30, 0.92);
+    /* Borde estilo bloque industrial esculpido */
+    border: 6px solid #141416;
+    outline: 2px solid var(--wine-bright);
+    box-shadow: 
+        10px 10px 0px rgba(0, 0, 0, 0.8),
+        inset 0 0 40px rgba(88, 17, 26, 0.4);
+    position: relative;
 }
 
-/* Encabezado Glitch URSS-Y2K */
+/* ENCABEZADO Y TÍTULO ROCOSO CON MUSGO */
 .ussr-header {
     text-align: center;
-    border-bottom: dotted 2px var(--fucsia-y2k);
-    padding-bottom: 15px;
-    margin-bottom: 20px;
-}
-
-.glitch-text {
-    font-size: 3em;
-    color: var(--text-white);
-    text-transform: uppercase;
+    border-bottom: 3px double var(--wine-bright);
+    padding-bottom: 20px;
+    margin-bottom: 25px;
     position: relative;
+}
+
+.star-badge {
+    font-size: 2em;
+    color: var(--accent-red);
+    text-shadow: 0 0 10px rgba(178, 34, 34, 0.6);
+    margin-bottom: -10px;
+}
+
+/* Efecto Título Rocoso tomado por la naturaleza */
+.rocky-title {
+    font-size: 3.2em;
+    font-weight: 900;
+    color: var(--text-sand);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    /* Sombras superpuestas que simulan textura de piedra/relieve */
     text-shadow: 
-        1px 1px 0 var(--ussr-red),
-        -2px -2px 0 var(--cyan-y2k),
-        0 0 10px rgba(255, 0, 255, 0.5);
-    filter: blur(0.3px);
+        3px 3px 0px var(--wine-red),
+        6px 6px 0px #000,
+        0px -2px 8px rgba(34, 41, 32, 0.8); /* Reflejo musgo verde */
+    position: relative;
 }
 
-.glitch-text::after {
-    content: "☭";
-    font-size: 1.5em;
-    color: rgba(255, 0, 0, 0.4);
-    position: absolute;
-    top: 0; left: 0; right: 0;
+.industrial-subtitle {
+    font-size: 0.85em;
+    letter-spacing: 2px;
+    color: var(--rust-orange);
+    margin-top: 5px;
+    font-weight: bold;
 }
 
-/* Navegación Pixel/Biselada */
+/* BOTONES ESTILO PLACA INDUSTRIAL / CONCRETO */
 .nav-bar {
     display: flex;
     justify-content: space-around;
-    gap: 10px;
-    margin-bottom: 25px;
+    gap: 15px;
+    margin-bottom: 30px;
 }
 
 .y2k-button {
-    background: linear-gradient(180deg, var(--bg-dark) 0%, #333 50%, var(--bg-dark) 100%);
-    color: var(--cyan-y2k);
-    border: ridge 3px var(--purple-y2k);
-    padding: 10px 20px;
+    background: linear-gradient(180deg, #3A3B3E 0%, #1F2022 100%);
+    color: var(--text-sand);
+    border: 2px solid var(--rust-orange);
+    padding: 12px 20px;
     font-weight: bold;
     text-decoration: none;
-    font-size: 0.9em;
-    text-shadow: 0 0 5px var(--cyan-y2k);
-    cursor: pointer;
-    transition: 0.1s ease;
+    font-size: 0.85em;
+    box-shadow: 4px 4px 0px #000;
+    transition: all 0.15s ease-in-out;
 }
 
 .y2k-button:hover {
-    color: var(--text-white);
-    box-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
-    transform: scale(1.05);
+    background: var(--wine-bright);
+    color: #FFF;
+    border-color: var(--text-sand);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px #000;
 }
 
-/* Estilo de los Posts (Brutalista Y2K) */
+/* BLOQUE DE POSTS (PlACAS INDUSTRIALES DE PARED) */
 .post {
-    background-color: rgba(20, 20, 20, 0.8);
-    border: var(--beveled-border);
-    border-color: var(--ussr-red);
-    padding: 20px;
-    margin-bottom: 25px;
-    box-shadow: 5px 5px 0 var(--purple-y2k);
+    background: linear-gradient(135deg, rgba(35, 35, 38, 0.9) 0%, rgba(20, 20, 22, 0.95) 100%);
+    border: 3px solid var(--wine-bright);
+    border-left: 8px solid var(--wine-bright);
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.7);
+    position: relative;
+}
+
+.post::before {
+    content: "☭";
+    position: absolute;
+    top: 10px; right: 15px;
+    font-size: 1.8em;
+    color: rgba(139, 30, 45, 0.25);
 }
 
 .post-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: solid 1px var(--ussr-red);
-    margin-bottom: 10px;
+    border-bottom: 1px dashed var(--rust-orange);
+    padding-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 .post h2 {
-    color: var(--ussr-red);
-    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.7);
+    color: var(--rust-orange);
+    font-size: 1.4em;
+    text-shadow: 1px 1px 0px #000;
 }
 
 .highlight {
-    color: var(--fucsia-y2k);
+    color: var(--accent-red);
+    font-weight: bold;
 }
 
-.post-date { font-size: 0.8em; color: rgba(234, 234, 234, 0.6); }
+.post-date { 
+    font-size: 0.75em; 
+    color: rgba(212, 197, 185, 0.5); 
+}
 
 .post-body blockquote {
-    border-left: solid 4px var(--cyan-y2k);
-    padding-left: 15px;
+    border-left: 4px solid var(--rust-orange);
+    background: rgba(158, 71, 42, 0.1);
+    padding: 10px 15px;
+    margin: 15px 0;
     font-style: italic;
-    color: rgba(0, 255, 255, 0.8);
+    color: #E2D5CB;
 }
 
-/* Botones de Reacción Estilo Consola/Plástico Y2K */
+/* BOTONES DE REACCIÓN INDUSTRIALES */
 .post-actions {
-    margin-top: 15px;
-    border-top: dotted 2px var(--ussr-red);
-    padding-top: 10px;
-    display: flex; gap: 10px;
+    margin-top: 20px;
+    border-top: 1px solid rgba(139, 30, 45, 0.4);
+    padding-top: 12px;
+    display: flex; 
+    gap: 12px;
 }
 
-/* Estilo para la animación de reacción activa (Y2K Flash) */
+.reaction-btn {
+    background: #141416;
+    border: 2px solid #444;
+    color: var(--text-sand);
+    padding: 8px 16px;
+    font-size: 0.85em;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 2px 2px 0px #000;
+    transition: all 0.1s;
+}
+
+.reaction-btn:hover { 
+    background: var(--wine-red);
+    border-color: var(--rust-orange);
+}
+
 .reaction-btn.reaction-active {
-    background: var(--fucsia-y2k) !important; /* Flash Neón */
-    border-color: var(--cyan-y2k) !important;
-    color: black !important;
-    transform: scale(1.15);
-    box-shadow: 0 0 20px var(--fucsia-y2k);
+    background: var(--wine-bright) !important;
+    border-color: var(--text-sand) !important;
+    color: #FFF !important;
+    transform: scale(1.05);
 }
 
-.reaction-btn:hover { background: #333; }
-.reaction-btn[data-reaction="like"] { color: var(--fucsia-y2k); border-color: var(--fucsia-y2k); }
-.reaction-btn[data-reaction="vote"] { color: var(--cyan-y2k); border-color: var(--cyan-y2k); }
-
-.main-footer { text-align: center; color: rgba(255,255,255,0.4); font-size: 0.8em; border-top: solid 1px #333; margin-top: 20px; padding-top: 10px; }
+.main-footer { 
+    text-align: center; 
+    color: rgba(212, 197, 185, 0.3); 
+    font-size: 0.8em; 
+    border-top: 2px solid #141416; 
+    margin-top: 30px; 
+    padding-top: 15px; 
+}
