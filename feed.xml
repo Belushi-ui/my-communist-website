@@ -2,14 +2,13 @@
 <rss version="2.0">
   <channel>
     <title>Adeline Y2K Kommunist Feed</title>
-    <link>https://<tu-usuario>.github.io/</link>
+    <link>https://tu-usuario-real.github.io/</link>
     <description>Protesta mecatrónica y manifiestos URSS-Y2K</description>
     <language>es</language>
 
-    <!-- ENTRADA INDIVIDUAL (Añadir una por post) -->
     <item>
-      <title>_LA_PAU_Y_EL_SUPORT_</title>
-      <link>https://<tu-usuario>.github.io/#main-post</link>
+      <title>LA PAU Y EL SUPORT</title>
+      <link>https://belushi-ui.github.io/my-communist-website/</link>
       <guid isPermaLink="false">post-id-15082026</guid>
       <pubDate>Fri, 15 Aug 2026 12:00:00 GMT</pubDate>
       <description>La pau i el suport mutú són la nostra natura. Esquerra Humanista Radical...</description>
