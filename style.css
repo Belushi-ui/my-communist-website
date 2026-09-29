@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&family=Special+Elite&display=swap');
 
-/* PALETA VINO / INDUSTRIAL / CONCRETO */
 :root {
     --bg-wall: #120e10;
     --wine-dark: #3a0812;
@@ -12,16 +11,12 @@
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-/* PARED DE CONCRETO Y SIMBOLOGÍA */
 body {
     background-color: var(--bg-wall);
     color: var(--text-sand);
     font-family: 'Special Elite', monospace;
     min-height: 100vh;
     padding: 20px;
-    
-    /* Textura de concreto agrietado y marcas */
     background-image: 
         radial-gradient(circle at 50% 30%, rgba(107, 17, 32, 0.35), transparent 70%),
         repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0px, rgba(0, 0, 0, 0.2) 1px, transparent 1px, transparent 3px),
@@ -29,8 +24,6 @@ body {
         radial-gradient(circle at 90% 80%, rgba(0, 0, 0, 0.6) 0%, transparent 40%);
     background-blend-mode: overlay, normal, normal, normal;
 }
-
-/* CONTENEDOR TIPO PLACA INDUSTRIAL */
 .main-frame {
     max-width: 850px;
     margin: 20px auto;
@@ -41,8 +34,6 @@ body {
     box-shadow: 12px 12px 0px #0a0a0b, inset 0 0 50px rgba(0,0,0,0.8);
     position: relative;
 }
-
-/* MARCA DE AGUA SOVIÉTICA EN EL FONDO DE LA PLACA */
 .main-frame::before {
     content: "☭";
     position: absolute;
@@ -53,27 +44,21 @@ body {
     pointer-events: none;
     z-index: 0;
 }
-
 .main-frame * {
     position: relative;
     z-index: 1;
 }
-
-/* ENCABEZADO */
 .ussr-header {
     text-align: center;
     border-bottom: 2px solid var(--wine-main);
     padding-bottom: 15px;
     margin-bottom: 25px;
 }
-
 .star-badge {
     font-size: 1.8em;
     color: var(--wine-bright);
     text-shadow: 0 0 5px var(--wine-dark);
 }
-
-/* TÍTULO ROCOSO CON FUENTE DESTROZADA Y DETALLE VEGETAL/VERDE DE FONDO */
 .rocky-title {
     font-family: 'Rubik Glitch', cursive;
     font-size: 3em;
@@ -82,24 +67,20 @@ body {
     text-shadow: 
         3px 3px 0px var(--wine-dark),
         5px 5px 0px #000,
-        0px -2px 10px rgba(45, 60, 35, 0.9); /* Tono musgo/vegetación */
+        0px -2px 10px rgba(45, 60, 35, 0.9);
 }
-
 .industrial-subtitle {
     font-size: 0.9em;
     color: var(--rust);
     letter-spacing: 2px;
     margin-top: 5px;
 }
-
-/* NAVEGACIÓN Y BOTONES DE BLOQUE */
 .nav-bar {
     display: flex;
     justify-content: space-around;
     gap: 10px;
     margin-bottom: 25px;
 }
-
 .y2k-button {
     background: #19181a;
     color: var(--text-sand);
@@ -111,7 +92,6 @@ body {
     box-shadow: 4px 4px 0px #000;
     transition: 0.1s;
 }
-
 .y2k-button:hover {
     background: var(--wine-main);
     border-color: var(--text-sand);
@@ -119,8 +99,6 @@ body {
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0px #000;
 }
-
-/* POSTS */
 .post {
     background: #1a191c;
     border: 2px solid var(--wine-dark);
@@ -129,7 +107,6 @@ body {
     margin-bottom: 20px;
     box-shadow: 6px 6px 0px #0d0c0e;
 }
-
 .post-header {
     display: flex;
     justify-content: space-between;
@@ -137,17 +114,14 @@ body {
     padding-bottom: 5px;
     margin-bottom: 12px;
 }
-
 .post h2 {
     color: var(--wine-bright);
     font-size: 1.2em;
 }
-
 .post-date {
     font-size: 0.8em;
     color: rgba(214, 202, 175, 0.5);
 }
-
 .post-body blockquote {
     border-left: 3px solid var(--rust);
     background: rgba(139, 58, 43, 0.1);
@@ -155,8 +129,6 @@ body {
     margin: 10px 0;
     color: #e5d8be;
 }
-
-/* BOTONES DE REACCIÓN */
 .post-actions {
     margin-top: 15px;
     border-top: 1px solid var(--wine-dark);
@@ -164,7 +136,6 @@ body {
     display: flex;
     gap: 10px;
 }
-
 .reaction-btn {
     background: #100f11;
     border: 1px solid #444;
@@ -174,17 +145,14 @@ body {
     cursor: pointer;
     box-shadow: 2px 2px 0px #000;
 }
-
 .reaction-btn:hover {
     background: var(--wine-dark);
     border-color: var(--wine-bright);
 }
-
 .reaction-btn.reaction-active {
     background: var(--wine-bright) !important;
     color: #fff !important;
 }
-
 .main-footer {
     text-align: center;
     color: rgba(214, 202, 175, 0.3);
